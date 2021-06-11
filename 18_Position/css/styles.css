@@ -29,7 +29,9 @@
 
         Fixed       -> El elemento perderá sus medidas y su espacio reservado. Si lo movemos usará el elemento html de referencia, y además se quedará fijo en esa posición aunque hagamos scroll.
 
-        Sticky      -> Es una mezcla de position relative y fixed. Con este tipo de posicionamiento los valores top, left, bottom y right no sirven para mover el elemento, sino para indicarle en qué punto pasará a tener un comportamiento de posicionamiento fixed, hasta llegar a ese punto se comportará como si tuviera relative.
+        Sticky      -> Es una mezcla de position relative y "fixed". Con este tipo de posicionamiento los valores top, left, bottom y right no sirven para mover el elemento, sino para indicarle en qué punto pasará a tener un comportamiento de posicionamiento fixed, hasta llegar a ese punto se comportará como si no tuviera posicionamiento si necesitáramos colocar otro elemento respecto a él (absolute).
+
+    z-index: Es la propiedad que nos permite ordenar los elementos superpuestos para controlar cual se coloca por delante y cual por detrás.
 */
 
 * {
@@ -40,25 +42,90 @@ body {
     margin: 0;
     background-color: #333;
     color: #fff;
-    padding-top: 70px;
+    /* padding-top: 70px; */
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.container {
+    width: 200px;
+    height: 200px;
+    background-color: #555;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    color: #333;
+}
+
+.box-1{
+    background-color: lightcoral;
+    position: relative;
+    left: 150px;
+    z-index: -1;
+}
+
+.box-1-2 {
+    background-color: aquamarine;
+    position: relative;
+    left: 150px;
+    top: -25px;
+    z-index: -2;
+}
+
+.box-2{
+    background-color: lightgreen;
+    position: relative;
+    top: 50px;
+    z-index: auto;
+}
+
+.box-3{
+    background-color: lightseagreen;
+    position: relative;
 }
 
 .header {
     text-align: center;
-    padding: 25px 0;
+    /* padding: 25px 0; */
     background-color: lightskyblue;
     color: orangered;
-    position: fixed;
+    /* position: fixed;
     top: 0;
-    width: 100%;
+    width: 100%; */
+    /* position: sticky;
+    top: 0; */
+    height: 200px;
+}
+
+/* .menu {
+    position: sticky;
+    top: 0;
+} */
+
+article {
+    outline: 3px solid red;
+}
+
+.article-title {
+    position: sticky;
+    top: 0;
+    background-color: #333;
+    margin: 0;
+    
 }
 
 main {
     color: #fff;
 }
 
-.link {
+/* .link {
     position: fixed;
     background-color: lightcoral;
     width: 200px;
-}
+} */
